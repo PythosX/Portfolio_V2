@@ -14,7 +14,10 @@ export default function CharacterSwap() {
       onClick={() => {
         if (!hovered) setToggled(v => !v);
       }}
-      onPointerEnter={(event) => setHovered(event.pointerType === "mouse")}
+      onPointerEnter={(e) => {
+        if (e.pointerType === "mouse") setHovered(true);
+          }}
+        onPointerLeave={() => setHovered(false)}
       onPointerLeave={() => setHovered(false)}
     >
       <span className="character-hint" aria-hidden="true">{alternate ? "01 / PORTRAIT" : "HOVER TO REVEAL"} <span>↗</span></span>
